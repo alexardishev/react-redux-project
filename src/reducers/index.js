@@ -83,12 +83,16 @@ const reducer = (state = initialState, action) => {
         case 'ITEM_REMOVE_FROM_CART':
             const idx = action.payload
             const itemIndex = state.items.findIndex(item => item.id === idx);
+            const itemInStateDel = state.items.find(item => item.id === idx);
+            console.log(itemInStateDel.price);
+
             return {
                 ...state,
                 items: [
                     ...state.items.slice(0, itemIndex),
                     ...state.items.slice(itemIndex + 1)
-                ]
+                ],
+                totalPrice: state.totalPrice - itemInStateDel.price
             }
             case 'ITEM_REMOVE_ONE_POSITION':
                 const idxp = action.payload
@@ -120,11 +124,6 @@ const reducer = (state = initialState, action) => {
                     }
                 }
 
-
-
-
-                console.log((itemPos.price * itemInStateP.qtty) - itemPos.price);
-                console.log(itemPos.price);
 
 
                 return {
