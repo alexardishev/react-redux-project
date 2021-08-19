@@ -3,7 +3,7 @@ import './menu-list-item.scss';
 
 const MenuListItem = ({menuItem, onAddToCart}) => {
 
-    const {title, price, url, category, number} = menuItem;
+    const {title, price, url, category, qtty} = menuItem;
     console.log(menuItem);
     return (
             <li className="menu__item">
@@ -11,7 +11,7 @@ const MenuListItem = ({menuItem, onAddToCart}) => {
                 <img className="menu__img" src={url} alt={url}></img>
                 <div className="menu__category">Category: <span>{category}</span></div>
                 <div className="menu__price">Price: <span>{price}$</span></div>
-                <div className="menu__price">count: <span>{number}</span></div>
+                <div className="menu__price">count: <span>{qtty}</span></div>
 
                 <button onClick={() => onAddToCart()} className="menu__btn">Add to cart</button>
             </li>

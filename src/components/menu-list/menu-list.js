@@ -3,7 +3,7 @@ import MenuListItem from '../menu-list-item';
 import {connect} from 'react-redux';
 import WithRestoService from '../hoc';
 import './menu-list.scss';
-import {menuLoaded, menuRequested, menuError, addedToCart, decCount} from '../../actions';
+import {menuLoaded, menuRequested, menuError, addedToCart} from '../../actions';
 import Spinner from '../spinner';
 import Error from '../error';
 
@@ -40,8 +40,7 @@ class MenuList extends Component {
               const items = menuItems.map(menuItem => {
                 return(
                      <MenuListItem key={menuItem.id} menuItem={menuItem}
-                     onAddToCart={() => addedToCart(menuItem.id)}
-                     onDecToCart={() => decCount(menuItem.id)}/>
+                     onAddToCart={() => addedToCart(menuItem.id)}/>
                     
                      
                 )
@@ -66,8 +65,7 @@ const mapDispatchToProps = {
     menuLoaded: menuLoaded,
     menuRequested: menuRequested,
     menuError: menuError,
-    addedToCart,
-    decCount
+    addedToCart
 
 }
 
@@ -79,5 +77,8 @@ const View = ({items}) => {
         </ul>
     ) 
 }
+
+
+
 
 export default WithRestoService() (connect(mapStateTiProps, mapDispatchToProps) (MenuList)); // Связыввает компонент и редакс, и должны сказать какие данные нужны от редакса этому компоненту
