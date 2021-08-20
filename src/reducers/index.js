@@ -13,6 +13,8 @@ const initialState = { // Стейт по умолчанию
 const reducer = (state = initialState, action) => {
     switch (action.type) { // action это объект у которого есть свойство type обязательное
         case 'MENU_LOADED': // когда это действие выполниться я в свой стейт запишу новое свойство меню
+
+
             return {
                 ...state,
                 menu:action.payload,
@@ -22,13 +24,18 @@ const reducer = (state = initialState, action) => {
 
             };
         case 'MENU_REQUESTED': // когда это действие выполниться я в свой стейт запишу новое свойство меню
-            return {
+        
+        const pagItems = state.menu.length;
+        console.log(pagItems)    
+        return {
                 ...state,
                 menu:state.menu,
                 loading: true,
                 count: 0,
                 error: false
             };
+
+            
         case 'MENU_ERROR': // когда это действие выполниться я в свой стейт запишу новое свойство меню
             return {
                 ...state,

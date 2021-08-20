@@ -9,7 +9,12 @@
     height: 450px;
     background-color: rgba(84, 84, 84, 0.8);
 }
-
+.menu__slider{
+    margin: 0px auto;
+    display: block;
+    width: 250px;
+    height: 98px;
+} 
 
 .menu__item{
     position: relative;
